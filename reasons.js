@@ -16,7 +16,7 @@ const reasons = [
         color: "#ffd166"
     },
     {
-        text: "Even on your busiest, most tiring days, you still find a way to show up for the people you love. Today, I hope the world shows up for you.",
+        text: "Even on your busiest days, you still find a way to show up for the people you love. Today, I hope the world shows up for you.",
         emoji: "🎂",
         color: "#c8b6ff"
     },
@@ -26,7 +26,7 @@ const reasons = [
         color: "#a0e7a0"
     },
     {
-        text: "Being around you feels like home. I don't say that enough, so I'm saying it here, in pixels and hearts, for the whole internet to see: Happy Birthday, Sandeepta. I'm so lucky to know you.",
+        text: "Being around you feels fantastic. I don't say that enough, so I'm saying it here, in pixels and hearts: Happy Birthday, Sandeepta. I'm so lucky to know you.",
         emoji: "💫",
         color: "#ff9d3c"
     }
