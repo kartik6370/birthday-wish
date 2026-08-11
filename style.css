@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
 * {
     margin: 0;
     padding: 0;
@@ -33,7 +35,147 @@ body {
     left: 0;
 }
 
+/* ---------- Envelope intro ---------- */
+.envelope-scene {
+    position: relative;
+    z-index: 2;
+    perspective: 1400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.4rem;
+}
+
+.envelope {
+    position: relative;
+    width: 260px;
+    height: 175px;
+    cursor: pointer;
+}
+
+.envelope-letter {
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    width: 82%;
+    height: 130px;
+    background: #fffaf5;
+    border-radius: 10px;
+    transform: translate(-50%, 0);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.2rem;
+    transition: transform 0.9s cubic-bezier(.2, .8, .2, 1);
+    z-index: 1;
+    text-align: center;
+}
+
+.letter-heading {
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #c98fc9;
+}
+
+.letter-name {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    color: #ff4fa0;
+}
+
+.letter-heart {
+    font-size: 1.1rem;
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    clip-path: polygon(0 0, 50% 52%, 100% 0, 100% 100%, 0 100%);
+    background: linear-gradient(135deg, #ff9ecb, #ff6fae);
+    border-radius: 10px;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.35);
+    z-index: 2;
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 92px;
+    background: linear-gradient(135deg, #ffb0d4, #ff7fb8);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    transition: transform 0.9s cubic-bezier(.2, .8, .2, 1);
+    z-index: 3;
+    border-radius: 10px 10px 0 0;
+    backface-visibility: hidden;
+}
+
+.wax-seal {
+    position: absolute;
+    top: 34px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ff8fae, #d6336c);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.4rem;
+    font-weight: 700;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.envelope-hint {
+    color: #8a2be2;
+    font-size: 0.95rem;
+    animation: pulseHint 1.6s ease-in-out infinite;
+}
+
+@keyframes pulseHint {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 1; }
+}
+
+.envelope.open {
+    animation: envelopeShake 0.4s ease;
+}
+
+@keyframes envelopeShake {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-3deg); }
+    75% { transform: rotate(3deg); }
+}
+
+.envelope.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+.envelope.open .wax-seal {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.4);
+}
+
+.envelope.open .envelope-letter {
+    transform: translate(-50%, -96px) scale(1.06);
+}
+
+.envelope-scene.hidden-away {
+    pointer-events: none;
+}
+
+/* ---------- Main content ---------- */
 .container {
+    display: none;
     text-align: center;
     z-index: 1;
     padding: 1rem;
@@ -87,6 +229,7 @@ h1 {
     position: absolute;
     pointer-events: none;
     opacity: 0;
+    z-index: 5;
 }
 
 @keyframes gradientBG {
@@ -99,6 +242,7 @@ h1 {
     h1 { font-size: 2.2rem; }
     .greeting { font-size: 1.05rem; }
     .cta-button { font-size: 1rem; }
+    .envelope { width: 220px; height: 150px; }
 }
 
 @media (hover: none) {

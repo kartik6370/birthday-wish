@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A Few Reasons 💖</title>
+<title>Pop a Balloon 🎈</title>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <link rel="stylesheet" href="reasons.css">
 </head>
@@ -15,14 +15,16 @@
     </div>
 
     <div class="container">
-        <h1>Just a few reasons, Sandeepta 💖</h1>
-        <p class="subtitle">out of about a million</p>
+        <h1>Pop a Balloon, Sandeepta 🎈</h1>
+        <p class="subtitle">six little reasons are hiding inside — pop them in any order you like</p>
 
-        <div id="reasons-container"></div>
+        <div class="balloon-field" id="balloonField"></div>
 
-        <button class="shuffle-button">Tell Me Another 💕</button>
-        <div class="reason-counter"></div>
+        <div class="progress"><span id="progressCount">0</span> / 6 popped</div>
+        <button class="continue-button" id="continueButton">One Last Thing... 💫</button>
     </div>
+
+    <div class="confetti-layer" id="confettiLayer"></div>
 
     <script src="reasons.js"></script>
 </body>
